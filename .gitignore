@@ -1,0 +1,30 @@
+# OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build & Dist
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# PHP (not needed on Netlify)
+forms/messages.json

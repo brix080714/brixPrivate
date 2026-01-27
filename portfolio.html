@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Portfolio - Brix Briongos</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Custom Viewer Modal Styles -->
+  <style>
+    .viewer-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .viewer-modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .viewer-container {
+      width: 95%;
+      max-width: 1200px;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      background: #222;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    }
+    
+    .viewer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: #1a1a1a;
+      border-bottom: 1px solid #444;
+    }
+    
+    .viewer-title {
+      color: #fff;
+      margin: 0;
+      font-size: 16px;
+      flex: 1;
+    }
+    
+    .viewer-close {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 32px;
+      cursor: pointer;
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+    
+    .viewer-close:hover {
+      color: #ccc;
+    }
+    
+    .viewer-content {
+      flex: 1;
+      overflow: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .viewer-video, .viewer-pdf {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+    }
+    
+    .viewer-pdf {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+  <!-- =======================================================
+  * Portfolio: Brix Briongos
+  * Created: January 2026
+  * Personal Portfolio Website
+  ======================================================== -->
+</head>
+
+<body class="portfolio-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <!-- <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <img src="assets/img/logo.webp" alt="">
+      <h1 class="sitename">FolioOne</h1> 
+    </a> -->
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html" class="active">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Academic Projects</h2>
+        <p>This section showcases my key academic and personal projects completed throughout my computer science studies. Each project demonstrates my technical skills, problem-solving abilities, and understanding of software engineering principles. I've included descriptions, technologies used, and learning outcomes from each project.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
+            <li data-filter="*" class="filter-active">All Projects</li>
+            <li data-filter=".filter-first-year">1st Year</li>
+            <li data-filter=".filter-second-year">2nd Year</li>
+            <li data-filter=".filter-third-year">3rd Year</li>
+            <li data-filter=".filter-freelance">Freelance</li>
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
+            
+            <!-- ClinicaRe - Clinic Management System (Freelance) -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-freelance">
+              <div class="portfolio-card">
+                <div class="portfolio-img">
+                  <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                    <div style="text-align: center; color: white;">
+                      <i class="bi bi-hospital" style="font-size: 48px; display: block; margin-bottom: 10px;"></i>
+                      <span style="font-size: 14px; font-weight: 500;">Clinic Management System</span>
+                    </div>
+                  </div>
+                  <div class="portfolio-overlay">
+                    <a href="portfolio-details.html?project=clinicre" class="portfolio-lightbox"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html?project=clinicre" class="portfolio-details-link"><i class="bi bi-link"></i></a>
+                  </div>
+                </div>
+                <div class="portfolio-info">
+                  <h4>ClinicaRe - Clinic Management System</h4>
+                  <p>Freelance | Oct-Dec 2025</p>
+                  <div class="portfolio-tags">
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">Full-Stack</span>
+                  </div>
+                  <p style="font-size: 0.85rem; margin-top: 8px; color: #666;">Complete clinic management system with patient records, appointment scheduling, billing, and inventory management. Solo freelance project demonstrating end-to-end system design and development.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Point of Sale System (2nd Year) -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-second-year">
+              <div class="portfolio-card">
+                <div class="portfolio-img">
+                  <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                    <div style="text-align: center; color: white;">
+                      <i class="bi bi-bag-check" style="font-size: 48px; display: block; margin-bottom: 10px;"></i>
+                      <span style="font-size: 14px; font-weight: 500;">POS System</span>
+                    </div>
+                  </div>
+                  <div class="portfolio-overlay">
+                    <a href="portfolio-details.html?project=pos-system" class="portfolio-lightbox"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html?project=pos-system" class="portfolio-details-link"><i class="bi bi-link"></i></a>
+                  </div>
+                </div>
+                <div class="portfolio-info">
+                  <h4>Point of Sale (POS) System with Dashboard</h4>
+                  <p>2nd Year | Feb 2024 - Jun 2024</p>
+                  <div class="portfolio-tags">
+                    <span class="tag">PHP</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">MySQL</span>
+                  </div>
+                  <p style="font-size: 0.85rem; margin-top: 8px; color: #666;">Full-stack POS application with real-time ordering, automatic calculations, product categories, size variations, and admin dashboard for transaction monitoring and sales analytics.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Employee Attendance & Payroll System (2nd Year) -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-second-year">
+              <div class="portfolio-card">
+                <div class="portfolio-img">
+                  <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                    <div style="text-align: center; color: white;">
+                      <i class="bi bi-barcode" style="font-size: 48px; display: block; margin-bottom: 10px;"></i>
+                      <span style="font-size: 14px; font-weight: 500;">Attendance System</span>
+                    </div>
+                  </div>
+                  <div class="portfolio-overlay">
+                    <a href="portfolio-details.html?project=attendance-system" class="portfolio-lightbox"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html?project=attendance-system" class="portfolio-details-link"><i class="bi bi-link"></i></a>
+                  </div>
+                </div>
+                <div class="portfolio-info">
+                  <h4>Employee ID & Attendance System with Barcode</h4>
+                  <p>2nd Year | Jul 2024 - Jan 2025</p>
+                  <div class="portfolio-tags">
+                    <span class="tag">PHP</span>
+                    <span class="tag">Barcode Technology</span>
+                    <span class="tag">MySQL</span>
+                  </div>
+                  <p style="font-size: 0.85rem; margin-top: 8px; color: #666;">Attendance tracking system using barcode scanning technology. Features automatic salary computation, employee ID generation with barcode integration, and comprehensive payroll reporting for HR management.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Smart Home Automation IoT (3rd Year) -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-third-year">
+              <div class="portfolio-card">
+                <div class="portfolio-img">
+                  <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                    <div style="text-align: center; color: white;">
+                      <i class="bi bi-lightbulb" style="font-size: 48px; display: block; margin-bottom: 10px;"></i>
+                      <span style="font-size: 14px; font-weight: 500;">Smart Home IoT</span>
+                    </div>
+                  </div>
+                  <div class="portfolio-overlay">
+                    <a href="portfolio-details.html?project=smart-home" class="portfolio-lightbox"><i class="bi bi-plus"></i></a>
+                    <a href="portfolio-details.html?project=smart-home" class="portfolio-details-link"><i class="bi bi-link"></i></a>
+                  </div>
+                </div>
+                <div class="portfolio-info">
+                  <h4>Smart Home Automation System (IoT - ESP32)</h4>
+                  <p>3rd Year | Aug 2025 - Dec 2025</p>
+                  <div class="portfolio-tags">
+                    <span class="tag">ESP32</span>
+                    <span class="tag">IoT</span>
+                    <span class="tag">Wi-Fi Communication</span>
+                  </div>
+                  <p style="font-size: 0.85rem; margin-top: 8px; color: #666;">IoT-based smart home application using ESP32 microcontroller. Enables remote control of lights and appliances via Wi-Fi, with integrated mobile interface, backend logic, and database logging for device management.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
+          <a href="#portfolio" class="btn btn-primary">View All Case Studies</a>
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Brix Briongos</strong> <span>All Rights Reserved<br></span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href=""><i class="bi bi-twitter-x"></i></a>
+        <a href=""><i class="bi bi-facebook"></i></a>
+        <a href=""><i class="bi bi-instagram"></i></a>
+        <a href=""><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Personal Portfolio 2026 -->
+        Portfolio by Brix Briongos
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Custom Viewer Modal -->
+  <div id="viewerModal" class="viewer-modal">
+    <div class="viewer-container">
+      <div class="viewer-header">
+        <h3 class="viewer-title" id="viewerTitle">Preview</h3>
+        <button class="viewer-close" onclick="closeViewer()">&times;</button>
+      </div>
+      <div class="viewer-content" id="viewerContent"></div>
+    </div>
+  </div>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Custom Viewer Script -->
+  <script>
+    function viewFile(filePath, fileName, fileType) {
+      const modal = document.getElementById('viewerModal');
+      const content = document.getElementById('viewerContent');
+      const title = document.getElementById('viewerTitle');
+      
+      title.textContent = fileName;
+      content.innerHTML = '';
+      
+      if (fileType === 'video') {
+        const video = document.createElement('video');
+        video.className = 'viewer-video';
+        video.controls = true;
+        video.autoplay = true;
+        video.controlsList = 'nodownload';
+        video.style.width = '100%';
+        video.style.height = '100%';
+        video.style.objectFit = 'contain';
+        
+        const source = document.createElement('source');
+        source.src = filePath;
+        
+        // Determine video type based on file extension
+        if (filePath.includes('.mov')) {
+          source.type = 'video/quicktime';
+        } else if (filePath.includes('.mp4')) {
+          source.type = 'video/mp4';
+        } else if (filePath.includes('.webm')) {
+          source.type = 'video/webm';
+        } else {
+          source.type = 'video/mp4';
+        }
+        
+        video.appendChild(source);
+        
+        const errorMsg = document.createElement('p');
+        errorMsg.textContent = 'Your browser does not support this video format. Try downloading the file instead.';
+        errorMsg.style.color = '#fff';
+        errorMsg.style.textAlign = 'center';
+        errorMsg.style.padding = '20px';
+        video.appendChild(errorMsg);
+        
+        // Add error handling
+        video.addEventListener('error', function() {
+          console.error('Video error:', this.error);
+          content.innerHTML = '<div style="color: #fff; padding: 40px; text-align: center;"><p>Unable to play video in browser.</p><p>File: ' + fileName + '</p><p><a href="' + filePath + '" download style="color: #0d6efd; text-decoration: none;">Click here to download</a></p></div>';
+        });
+        
+        content.appendChild(video);
+      } else if (fileType === 'pdf') {
+        const pdfContainer = document.createElement('div');
+        pdfContainer.style.width = '100%';
+        pdfContainer.style.height = '100%';
+        pdfContainer.style.position = 'relative';
+        
+        const iframe = document.createElement('iframe');
+        iframe.className = 'viewer-pdf';
+        iframe.src = filePath + '#toolbar=1&navpanes=0&view=FitW';
+        iframe.style.border = 'none';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        
+        pdfContainer.appendChild(iframe);
+        content.appendChild(pdfContainer);
+      }
+      
+      modal.classList.add('active');
+    }
+    
+    function closeViewer() {
+      const modal = document.getElementById('viewerModal');
+      modal.classList.remove('active');
+      const video = document.querySelector('.viewer-video');
+      if (video) video.pause();
+    }
+    
+    // Close modal when clicking outside
+    document.getElementById('viewerModal')?.addEventListener('click', function(e) {
+      if (e.target === this) closeViewer();
+    });
+    
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeViewer();
+    });
+  </script>
+
+  <!-- Auto-detect and handle different file types -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const videoExtensions = ['.mov', '.mp4', '.webm', '.avi', '.mkv', '.flv'];
+      const portfolioItems = document.querySelectorAll('.portfolio-img');
+      
+      portfolioItems.forEach(item => {
+        const imgTag = item.querySelector('img');
+        const videoTag = item.querySelector('video');
+        
+        // Skip if already a video
+        if (videoTag) return;
+        
+        // Check if image src is actually a video file
+        if (imgTag) {
+          const src = imgTag.src.toLowerCase();
+          const isVideo = videoExtensions.some(ext => src.includes(ext));
+          
+          if (isVideo) {
+            const videoType = src.includes('.mov') ? 'video/quicktime' : 
+                            src.includes('.mp4') ? 'video/mp4' :
+                            src.includes('.webm') ? 'video/webm' : 'video/mp4';
+            
+            // Replace img with video
+            const newVideo = document.createElement('video');
+            newVideo.setAttribute('controls', '');
+            newVideo.setAttribute('class', 'img-fluid');
+            newVideo.setAttribute('style', 'width: 100%; height: auto;');
+            
+            const source = document.createElement('source');
+            source.setAttribute('src', imgTag.src);
+            source.setAttribute('type', videoType);
+            
+            const fallbackText = document.createTextNode('Your browser does not support the video tag.');
+            
+            newVideo.appendChild(source);
+            newVideo.appendChild(fallbackText);
+            
+            imgTag.replaceWith(newVideo);
+            
+            // Update overlay link for video
+            const overlayLink = item.querySelector('a.glightbox');
+            if (overlayLink && !overlayLink.getAttribute('data-glightbox')) {
+              overlayLink.setAttribute('data-glightbox', 'type: external');
+            }
+          }
+        }
+      });
+    });
+
+    // Handle filter navigation from dropdown menu
+    document.addEventListener('DOMContentLoaded', function() {
+      const hash = window.location.hash;
+      if (hash) {
+        // Extract filter from hash (e.g., #filter-second-year)
+        const filterButton = document.querySelector(`[data-filter="${hash}"]`);
+        if (filterButton) {
+          // Remove active class from all buttons
+          document.querySelectorAll('.portfolio-filters li').forEach(btn => btn.classList.remove('filter-active'));
+          // Add active class to clicked button
+          filterButton.classList.add('filter-active');
+          // Trigger the filter
+          const isotope = jQuery('.isotope-container').data('isotope');
+          if (isotope) {
+            isotope.arrange({ filter: hash });
+          }
+          // Scroll to portfolio section
+          setTimeout(() => {
+            document.querySelector('.portfolio-filters').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 100);
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>
