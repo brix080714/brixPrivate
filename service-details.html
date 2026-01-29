@@ -315,7 +315,7 @@
                   <p>Want to discuss your project? Send me a message and I'll get back to you soon.</p>
                 </div>
 
-                <form id="serviceForm" class="consultation-form-js">
+                <form id="serviceForm" class="consultation-form-js" name="service-inquiry" method="POST" netlify>
                   <div class="form-group">
                     <input type="text" name="name" class="form-input" placeholder="Your Name" required="">
                   </div>
@@ -441,14 +441,10 @@
             service: service
           };
           
-          // Send via Formspree
-          fetch('https://formspree.io/f/xjvqqvwq', {
+          // Send via Netlify Forms
+          fetch('/', {
             method: 'POST',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
+            body: new FormData(this)
           })
           .then(response => {
             loading.style.display = 'none';
