@@ -32,7 +32,7 @@ This document contains ready-to-paste text content for your CS portfolio. Custom
 <span class="eyebrow">About Me</span>
 <h2 class="headline">Hi, I'm [Your Name] — A Passionate Computer Science Student & Aspiring Software Engineer</h2>
 <p class="lead">
-  I am a [X-year] student pursuing a degree in Computer Science at [University Name], located in [City/Region]. My academic journey has equipped me with strong technical foundations in software development, data structures, algorithms, and full-stack web development. I am dedicated to building innovative, scalable, and user-centric solutions.
+  I am a [3rd-year] student pursuing a degree in Computer Science at [University Name], located in [City/Region]. My academic journey has equipped me with strong technical foundations in software development, data structures, algorithms, and full-stack web development. I am dedicated to building innovative, scalable, and user-centric solutions.
 </p>
 <p>
   Beyond academics, I am actively engaged in continuous learning through personal projects, coding challenges, and technology communities. I believe in the power of clean code, collaborative problem-solving, and delivering solutions that make a real-world impact.
