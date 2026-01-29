@@ -88,13 +88,58 @@
           <div class="col-lg-7">
 
             <!-- Hero Service Introduction -->
-            <div class="service-hero" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-hero" data-service="fullstack" style="display:none;">
               <div class="service-meta">
                 <span class="service-category">Web Development</span>
                 <span class="reading-time">5 min read</span>
               </div>
               <h1>Full-Stack Web Development</h1>
               <p class="service-description">I build websites and web applications that work well and solve real problems. From the design you see to the code running on servers.</p>
+            </div>
+
+            <div class="service-hero" data-service="database" style="display:none;">
+              <div class="service-meta">
+                <span class="service-category">Database Design</span>
+                <span class="reading-time">5 min read</span>
+              </div>
+              <h1>Database Design & Optimization</h1>
+              <p class="service-description">I design efficient databases that keep your data organized, secure, and fast. Proper structure from the start prevents problems later.</p>
+            </div>
+
+            <div class="service-hero" data-service="api" style="display:none;">
+              <div class="service-meta">
+                <span class="service-category">API Development</span>
+                <span class="reading-time">5 min read</span>
+              </div>
+              <h1>RESTful API Development</h1>
+              <p class="service-description">I build APIs that let your applications communicate securely and efficiently. Well-designed APIs make integration easy.</p>
+            </div>
+
+            <div class="service-hero" data-service="consulting" style="display:none;">
+              <div class="service-meta">
+                <span class="service-category">Technical Consulting</span>
+                <span class="reading-time">5 min read</span>
+              </div>
+              <h1>Software Solutions & Technical Consulting</h1>
+              <p class="service-description">I help you figure out the right technical approach for your problems. Good planning prevents expensive mistakes later.</p>
+            </div>
+
+            <div class="service-hero" data-service="testing" style="display:none;">
+              <div class="service-meta">
+                <span class="service-category">Quality Assurance</span>
+                <span class="reading-time">5 min read</span>
+              </div>
+              <h1>Software Testing & QA</h1>
+              <p class="service-description">I write tests that catch bugs before users find them. Good testing keeps your application reliable and saves money long-term.</p>
+            </div>
+
+            <div class="service-hero" data-service="devops" style="display:none;">
+              <div class="service-meta">
+                <span class="service-category">DevOps & Deployment</span>
+                <span class="reading-time">5 min read</span>
+              </div>
+              <h1>Cloud Deployment & DevOps</h1>
+              <p class="service-description">I get your applications online and keep them running smoothly. Automated deployments make updates fast and safe.</p>
             </div>
 
             <!-- Service Visual -->
@@ -360,11 +405,17 @@
     const urlParams = new URLSearchParams(window.location.search);
     const service = urlParams.get('service') || 'fullstack';
     
-    // Hide all service content except the selected one
+    // Show/hide content based on service
     document.addEventListener('DOMContentLoaded', function() {
-      const serviceContent = document.querySelector('.service-hero');
-      if (serviceContent) {
-        serviceContent.dataset.service = service;
+      // Hide all service content
+      document.querySelectorAll('.service-hero').forEach(el => {
+        el.style.display = 'none';
+      });
+      
+      // Show only the selected service
+      const selectedService = document.querySelector(`.service-hero[data-service="${service}"]`);
+      if (selectedService) {
+        selectedService.style.display = 'block';
       }
     });
   </script>
