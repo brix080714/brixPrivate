@@ -354,6 +354,21 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <!-- Service Details Dynamic Handler -->
+  <script>
+    // Get service from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const service = urlParams.get('service') || 'fullstack';
+    
+    // Hide all service content except the selected one
+    document.addEventListener('DOMContentLoaded', function() {
+      const serviceContent = document.querySelector('.service-hero');
+      if (serviceContent) {
+        serviceContent.dataset.service = service;
+      }
+    });
+  </script>
+
 </body>
 
 </html>
