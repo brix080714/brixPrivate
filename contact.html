@@ -126,7 +126,7 @@
               <h3>Get In Touch</h3>
               <p>Have a question, project proposal, or just want to connect? Send me a message and I'll get back to you as soon as possible. Whether it's about collaboration, mentorship, or opportunities, I'd love to hear from you!</p>
 
-              <form name="contact" method="POST" netlify class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <form id="contactForm" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                 <div class="row gy-4">
 
                   <div class="col-md-6">
@@ -222,26 +222,31 @@
       // Show loading
       showLoading();
 
-      // Prepare form data
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('subject', subject);
-      formData.append('message', message);
+      // Prepare form data for Formspree
+      const data = {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message
+      };
 
-      // Send to PHP backend
-      fetch('forms/contact.php', {
+      // Send to Formspree
+      fetch('https://formspree.io/f/xjvqqvwq', {
         method: 'POST',
-        body: formData
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
       })
       .then(response => response.json())
       .then(data => {
         hideLoading();
-        if (data.success) {
-          showSuccess(data.message);
+        if (response.ok) {
+          showSuccess('Message sent successfully! I will get back to you soon.');
           document.getElementById('contactForm').reset();
         } else {
-          showError(data.message);
+          showError('There was a problem sending your message. Please try again.');
         }
       })
       .catch(error => {
