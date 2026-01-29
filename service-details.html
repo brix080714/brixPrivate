@@ -315,7 +315,7 @@
                   <p>Want to discuss your project? Send me a message and I'll get back to you soon.</p>
                 </div>
 
-                <form name="serviceinquiry" method="POST" netlify class="consultation-form-js">
+                <form id="serviceForm" class="consultation-form-js">
                   <div class="form-group">
                     <input type="text" name="name" class="form-input" placeholder="Your Name" required="">
                   </div>
@@ -327,8 +327,6 @@
                   <div class="form-group">
                     <input type="tel" name="phone" class="form-input" placeholder="Phone (optional)">
                   </div>
-
-                  <input type="hidden" name="subject" value="Web Development Project Inquiry">
 
                   <div class="form-group">
                     <textarea name="message" class="form-input" rows="4" placeholder="Tell me about your project..." required=""></textarea>
@@ -416,6 +414,58 @@
       const selectedService = document.querySelector(`.service-hero[data-service="${service}"]`);
       if (selectedService) {
         selectedService.style.display = 'block';
+      }
+
+      // Handle service inquiry form
+      const serviceForm = document.getElementById('serviceForm');
+      if (serviceForm) {
+        serviceForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const loading = this.querySelector('.loading');
+          const errorMessage = this.querySelector('.error-message');
+          const sentMessage = this.querySelector('.sent-message');
+          
+          loading.style.display = 'block';
+          errorMessage.textContent = '';
+          errorMessage.style.display = 'none';
+          sentMessage.style.display = 'none';
+          
+          // Collect form data
+          const formData = new FormData(this);
+          const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            message: formData.get('message'),
+            service: service
+          };
+          
+          // Send via Formspree
+          fetch('https://formspree.io/f/xjvqqvwq', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          })
+          .then(response => {
+            loading.style.display = 'none';
+            if (response.ok) {
+              sentMessage.style.display = 'block';
+              this.reset();
+            } else {
+              errorMessage.textContent = 'Error sending message. Please try again.';
+              errorMessage.style.display = 'block';
+            }
+          })
+          .catch(error => {
+            loading.style.display = 'none';
+            errorMessage.textContent = 'Network error. Please check your connection.';
+            errorMessage.style.display = 'block';
+          });
+        });
       }
     });
   </script>
