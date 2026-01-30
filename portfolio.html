@@ -375,7 +375,7 @@
         const video = document.createElement('video');
         video.className = 'viewer-video';
         video.controls = true;
-        video.autoplay = true;
+        video.autoplay = false;
         video.controlsList = 'nodownload';
         video.style.width = '100%';
         video.style.height = '100%';
@@ -409,6 +409,14 @@
           console.error('Video error:', this.error);
           content.innerHTML = '<div style="color: #fff; padding: 40px; text-align: center;"><p>Unable to play video in browser.</p><p>File: ' + fileName + '</p><p><a href="' + filePath + '" download style="color: #0d6efd; text-decoration: none;">Click here to download</a></p></div>';
         });
+        
+        // Handle play promise rejection (for autoplay issues)
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.warn('Video autoplay failed (this is normal):', error);
+          });
+        }
         
         content.appendChild(video);
       } else if (fileType === 'pdf') {
