@@ -2,7 +2,19 @@
   publish = "."
   command = "echo 'Static HTML site'"
 
+# Form configuration for Netlify Forms
+[functions]
+  directory = "functions"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+# Spam filtering rules (optional)
+[[headers]]
+  for = "/"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
