@@ -416,52 +416,14 @@
         selectedService.style.display = 'block';
       }
 
-      // Handle service inquiry form
+      // Add hidden service field to form for Netlify Forms
       const serviceForm = document.getElementById('serviceForm');
       if (serviceForm) {
-        serviceForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          const loading = this.querySelector('.loading');
-          const errorMessage = this.querySelector('.error-message');
-          const sentMessage = this.querySelector('.sent-message');
-          
-          loading.style.display = 'block';
-          errorMessage.textContent = '';
-          errorMessage.style.display = 'none';
-          sentMessage.style.display = 'none';
-          
-          // Collect form data
-          const formData = new FormData(this);
-          const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            message: formData.get('message'),
-            service: service
-          };
-          
-          // Send via Netlify Forms
-          fetch('/', {
-            method: 'POST',
-            body: new FormData(this)
-          })
-          .then(response => {
-            loading.style.display = 'none';
-            if (response.ok) {
-              sentMessage.style.display = 'block';
-              this.reset();
-            } else {
-              errorMessage.textContent = 'Error sending message. Please try again.';
-              errorMessage.style.display = 'block';
-            }
-          })
-          .catch(error => {
-            loading.style.display = 'none';
-            errorMessage.textContent = 'Network error. Please check your connection.';
-            errorMessage.style.display = 'block';
-          });
-        });
+        const serviceInput = document.createElement('input');
+        serviceInput.type = 'hidden';
+        serviceInput.name = 'service';
+        serviceInput.value = service;
+        serviceForm.appendChild(serviceInput);
       }
     });
   </script>
