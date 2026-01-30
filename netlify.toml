@@ -2,9 +2,14 @@
   publish = "."
   command = "echo 'Static HTML site'"
 
-# Form configuration for Netlify Forms
-[functions]
-  directory = "functions"
+# Form configuration
+[[forms]]
+  name = "contact"
+  method = "POST"
+  
+[[forms]]
+  name = "service-inquiry"
+  method = "POST"
 
 [[redirects]]
   from = "/*"
