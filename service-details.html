@@ -385,7 +385,6 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
@@ -398,8 +397,30 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Service Details Dynamic Handler -->
+  <!-- Service Details Dynamic Handler & Netlify Forms -->
   <script>
+    // Netlify Forms Handler for Service Inquiry Form
+    document.addEventListener('DOMContentLoaded', function() {
+      const serviceForm = document.getElementById('serviceForm');
+      if (serviceForm) {
+        serviceForm.addEventListener('submit', function(e) {
+          const loading = this.querySelector('.loading');
+          const errorMsg = this.querySelector('.error-message');
+          const sentMsg = this.querySelector('.sent-message');
+          
+          if (loading) loading.style.display = 'block';
+          if (errorMsg) errorMsg.style.display = 'none';
+          if (sentMsg) sentMsg.style.display = 'none';
+          
+          setTimeout(function() {
+            if (loading) loading.style.display = 'none';
+            if (sentMsg) sentMsg.style.display = 'block';
+            serviceForm.reset();
+          }, 1500);
+        });
+      }
+    });
+
     // Get service from URL parameter
     const urlParams = new URLSearchParams(window.location.search);
     const service = urlParams.get('service') || 'fullstack';

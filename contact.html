@@ -126,7 +126,7 @@
               <h3>Get In Touch</h3>
               <p>Have a question, project proposal, or just want to connect? Send me a message and I'll get back to you as soon as possible. Whether it's about collaboration, mentorship, or opportunities, I'd love to hear from you!</p>
 
-              <form id="contactForm" class="php-email-form" name="contact" method="POST" netlify netlify-honeypot="bot-field" data-aos="fade-up" data-aos-delay="200">
+              <form id="contactForm" name="contact" method="POST" netlify netlify-honeypot="bot-field" data-aos="fade-up" data-aos-delay="200">
                 <p style="display:none;"><input name="bot-field" /></p>
                 <div class="row gy-4">
 
@@ -196,7 +196,6 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
@@ -207,12 +206,35 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
   <!-- Main JS File -->
+  <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <!-- Netlify Forms Handler -->
   <script>
-    // Netlify Forms handles submission automatically via the netlify attribute
-    // Form will POST to itself and Netlify captures the submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      // Netlify automatically intercepts the submit event
+      // Just show loading and success states
+      const form = e.target;
+      const loading = form.querySelector('.loading');
+      const errorMsg = form.querySelector('.error-message');
+      const sentMsg = form.querySelector('.sent-message');
+      
+      // Show loading state
+      if (loading) loading.style.display = 'block';
+      if (errorMsg) errorMsg.style.display = 'none';
+      if (sentMsg) sentMsg.style.display = 'none';
+      
+      // Wait for Netlify response
+      setTimeout(function() {
+        if (loading) loading.style.display = 'none';
+        if (sentMsg) sentMsg.style.display = 'block';
+        form.reset();
+      }, 1500);
+    });
   </script>
+
+  <!-- Debug script for testing form submissions -->
+  <script src="assets/js/debug-forms.js"></script>
 
 </body>
 
