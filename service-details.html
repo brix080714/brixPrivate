@@ -404,6 +404,8 @@
       const serviceForm = document.getElementById('serviceForm');
       if (serviceForm) {
         serviceForm.addEventListener('submit', function(e) {
+          e.preventDefault(); // CRITICAL: Stop default form behavior
+          
           const loading = this.querySelector('.loading');
           const errorMsg = this.querySelector('.error-message');
           const sentMsg = this.querySelector('.sent-message');
@@ -412,11 +414,30 @@
           if (errorMsg) errorMsg.style.display = 'none';
           if (sentMsg) sentMsg.style.display = 'none';
           
-          setTimeout(function() {
+          // Submit form data to Netlify
+          const formData = new FormData(this);
+          
+          fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+          })
+          .then(() => {
             if (loading) loading.style.display = 'none';
             if (sentMsg) sentMsg.style.display = 'block';
             serviceForm.reset();
-          }, 1500);
+            setTimeout(() => {
+              if (sentMsg) sentMsg.style.display = 'none';
+            }, 3000);
+          })
+          .catch(error => {
+            if (loading) loading.style.display = 'none';
+            if (errorMsg) {
+              errorMsg.style.display = 'block';
+              errorMsg.innerHTML = 'Error sending message. Please try again.';
+            }
+            console.error('Form submission error:', error);
+          });
         });
       }
     });

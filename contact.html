@@ -211,25 +211,47 @@
 
   <!-- Netlify Forms Handler -->
   <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      // Netlify automatically intercepts the submit event
-      // Just show loading and success states
-      const form = e.target;
-      const loading = form.querySelector('.loading');
-      const errorMsg = form.querySelector('.error-message');
-      const sentMsg = form.querySelector('.sent-message');
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      if (!form) return;
       
-      // Show loading state
-      if (loading) loading.style.display = 'block';
-      if (errorMsg) errorMsg.style.display = 'none';
-      if (sentMsg) sentMsg.style.display = 'none';
-      
-      // Wait for Netlify response
-      setTimeout(function() {
-        if (loading) loading.style.display = 'none';
-        if (sentMsg) sentMsg.style.display = 'block';
-        form.reset();
-      }, 1500);
+      form.addEventListener('submit', function(e) {
+        e.preventDefault(); // CRITICAL: Stop default form behavior
+        
+        const loading = form.querySelector('.loading');
+        const errorMsg = form.querySelector('.error-message');
+        const sentMsg = form.querySelector('.sent-message');
+        
+        // Show loading state
+        if (loading) loading.style.display = 'block';
+        if (errorMsg) errorMsg.style.display = 'none';
+        if (sentMsg) sentMsg.style.display = 'none';
+        
+        // Submit form data to Netlify
+        const formData = new FormData(form);
+        
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+          if (loading) loading.style.display = 'none';
+          if (sentMsg) sentMsg.style.display = 'block';
+          form.reset();
+          setTimeout(() => {
+            if (sentMsg) sentMsg.style.display = 'none';
+          }, 3000);
+        })
+        .catch(error => {
+          if (loading) loading.style.display = 'none';
+          if (errorMsg) {
+            errorMsg.style.display = 'block';
+            errorMsg.innerHTML = 'Error sending message. Please try again.';
+          }
+          console.error('Form submission error:', error);
+        });
+      });
     });
   </script>
 
