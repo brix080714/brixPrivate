@@ -125,19 +125,58 @@
               </div>
 
               <div class="thumbnail-grid" data-aos="fade-up" data-aos-delay="200">
-                <div class="row g-2 mt-3">
-                  <div class="col-3">
-                    <img src="assets/img/portfolio/portfolio-4.webp" alt="Gallery Image" class="img-fluid glightbox">
+                <div class="portfolio-thumbnails-slider swiper init-swiper">
+                  <script type="application/json" class="swiper-config">
+                    {
+                      "loop": true,
+                      "speed": 500,
+                      "slidesPerView": 4,
+                      "spaceBetween": 8,
+                      "navigation": {
+                        "nextEl": ".thumbnail-swiper-button-next",
+                        "prevEl": ".thumbnail-swiper-button-prev"
+                      },
+                      "breakpoints": {
+                        "576": {
+                          "slidesPerView": 2
+                        },
+                        "768": {
+                          "slidesPerView": 3
+                        },
+                        "992": {
+                          "slidesPerView": 4
+                        }
+                      }
+                    }
+                  </script>
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-4.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-6.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-11.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-12.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-5.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-7.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-8.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-13.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
                   </div>
-                  <div class="col-3">
-                    <img src="assets/img/portfolio/portfolio-6.webp" alt="Gallery Image" class="img-fluid glightbox">
-                  </div>
-                  <div class="col-3">
-                    <img src="assets/img/portfolio/portfolio-11.webp" alt="Gallery Image" class="img-fluid glightbox">
-                  </div>
-                  <div class="col-3">
-                    <img src="assets/img/portfolio/portfolio-12.webp" alt="Gallery Image" class="img-fluid glightbox">
-                  </div>
+                  <div class="thumbnail-swiper-button-prev swiper-button-prev"></div>
+                  <div class="thumbnail-swiper-button-next swiper-button-next"></div>
                 </div>
               </div>
 
@@ -313,6 +352,8 @@
         solution: 'I developed ClinicaRe using PHP with MySQL database for secure backend operations and Bootstrap for responsive frontend design. Implemented JWT authentication for secure user sessions, role-based access control for different staff levels (Admin, Doctor, Receptionist), and used prepared statements to prevent SQL injection. The appointment system includes conflict detection and automated email notifications. Data encryption and secure password hashing ensure patient information security. The responsive design allows staff to access the system from any device.',
         features: ['Patient Registration & Profiles', 'Appointment Scheduling System', 'Medical History Tracking', 'Prescription Management', 'Role-based Access Control', 'Billing Integration'],
         tech: ['PHP', 'MySQL', 'Bootstrap', 'JavaScript', 'HTML5/CSS3'],
+        mainImages: ['portfolio-5.webp', 'portfolio-7.webp', 'portfolio-8.webp'],
+        thumbnails: ['portfolio-4.webp', 'portfolio-6.webp', 'portfolio-11.webp', 'portfolio-12.webp'],
         next: 'pos-system'
       },
       'pos-system': {
@@ -327,6 +368,10 @@
         solution: 'I developed the POS System using PHP backend with transaction management, JavaScript for client-side calculations, and MySQL for reliable data storage. Implemented real-time inventory updates using database transactions, created a responsive Bootstrap-based UI for quick navigation, and built an analytics dashboard using data visualization techniques. The system includes barcode scanning support, multiple payment integration options, and automated receipt printing functionality.',
         features: ['Real-time Ordering System', 'Automatic Calculations', 'Product Size Variations', 'Inventory Management', 'Admin Dashboard', 'Sales Analytics & Reports'],
         tech: ['PHP', 'JavaScript', 'MySQL', 'Bootstrap', 'Data Visualization'],
+        mainImages: ['Screenshot (1107).png', 'Screenshot (1112).png', 'Screenshot (1108).png', 'Screenshot (1109).png', 'Screenshot (1110).png', 'Screenshot (1111).png',
+                      'Screenshot (1113).png', 'Screenshot (1114).png', 'Screenshot (1115).png', 'Screenshot (1116).png'],
+        thumbnails: ['Screenshot (1107).png', 'Screenshot (1112).png', 'Screenshot (1108).png', 'Screenshot (1109).png', 'Screenshot (1110).png', 'Screenshot (1111).png',
+                      'Screenshot (1113).png', 'Screenshot (1114).png', 'Screenshot (1115).png', 'Screenshot (1116).png'],
         next: 'attendance-system'
       },
       'attendance-system': {
@@ -341,6 +386,12 @@
         solution: 'I implemented the system using PHP for backend logic, barcode library integration for scanning functionality, and MySQL for secure data management. Created automated salary calculation algorithms that account for working hours, overtime rates, and deductions. Built comprehensive reporting tools using data aggregation and visualization. The system includes role-based access control for security and audit trails for payroll compliance.',
         features: ['Barcode-based Attendance Tracking', 'Employee ID Generation', 'Automated Salary Calculation', 'Overtime Management', 'Payroll Report Generation', 'HR Dashboard & Analytics'],
         tech: ['PHP', 'Barcode Technology', 'MySQL', 'Bootstrap', 'Data Analytics'],
+        mainImages: ['Screenshot (1127).png', 'Screenshot_26-1-2026_235035_localhost.jpeg', 'Screenshot_26-1-2026_235216_localhost.jpeg', 'Screenshot_26-1-2026_235339_localhost.jpeg', 'Screenshot_27-1-2026_0126_localhost.jpeg', 
+                      'Screenshot (1126).png', 'Screenshot (1125).png', 'Screenshot (1124).png', 'Screenshot (1123).png', 'Screenshot (1122).png', 'Screenshot (1121).png', 'Screenshot (1120).png', 'Screenshot (1119).png', 'Screenshot (1118).png',
+                      'Screenshot (1117).png'],
+        thumbnails: ['Screenshot (1127).png', 'Screenshot_26-1-2026_235035_localhost.jpeg', 'Screenshot_26-1-2026_235216_localhost.jpeg', 'Screenshot_26-1-2026_235339_localhost.jpeg', 'Screenshot_27-1-2026_0126_localhost.jpeg', 
+                      'Screenshot (1126).png', 'Screenshot (1125).png', 'Screenshot (1124).png', 'Screenshot (1123).png', 'Screenshot (1122).png', 'Screenshot (1121).png', 'Screenshot (1120).png', 'Screenshot (1119).png', 'Screenshot (1118).png',
+                      'Screenshot (1117).png'],
         next: 'smart-home'
       },
       'smart-home': {
@@ -355,6 +406,12 @@
         solution: 'I developed the system using ESP32 programming for device firmware, PHP backend for command processing and logging, and Bootstrap for the mobile-friendly control interface. Implemented MQTT protocol for efficient IoT communication, secure token-based authentication for remote access, and database logging for monitoring. The system includes auto-reconnection logic, command queuing during downtime, and real-time status synchronization across multiple devices.',
         features: ['Remote Device Control', 'Wi-Fi Connectivity', 'Mobile Interface', 'Device Status Monitoring', 'Automation Scheduling', 'Energy Usage Logging'],
         tech: ['ESP32', 'IoT', 'Wi-Fi Communication', 'PHP Backend', 'MQTT Protocol'],
+        mainImages: ['600228160_886313570399147_4378637348378930096_n.jpg', '600219698_886314087065762_6424038488173539405_n.jpg', '600295102_886314253732412_97129777401239475_n.jpg', 
+                      '600117170_886314300399074_9201566100082247577_n.jpg', '600880159_886314397065731_2550303115403911418_n.jpg', '600279681_886314443732393_9199809940785386128_n.jpg',
+                      '598945249_886314560399048_9200898821569054003_n.jpg', '599826181_886314623732375_536313787040420975_n.jpg'],
+        thumbnails: ['600228160_886313570399147_4378637348378930096_n.jpg', '600219698_886314087065762_6424038488173539405_n.jpg', '600295102_886314253732412_97129777401239475_n.jpg', 
+                      '600117170_886314300399074_9201566100082247577_n.jpg', '600880159_886314397065731_2550303115403911418_n.jpg', '600279681_886314443732393_9199809940785386128_n.jpg',
+                      '598945249_886314560399048_9200898821569054003_n.jpg', '599826181_886314623732375_536313787040420975_n.jpg'],
         next: 'clinicre'
       }
     };
@@ -374,6 +431,40 @@
       // Update title
       document.querySelector('.section-title h2').textContent = project.title;
       document.querySelector('.section-title p').textContent = project.description;
+
+      // Update main slider images
+      const mainSwiperWrapper = document.querySelector('.portfolio-details-slider .swiper-wrapper');
+      mainSwiperWrapper.innerHTML = project.mainImages.map(img => 
+        `<div class="swiper-slide"><img src="assets/img/portfolio/${img}" alt="Portfolio Image" class="img-fluid"></div>`
+      ).join('');
+
+      // Update thumbnails carousel
+      const thumbnailWrapper = document.querySelector('.portfolio-thumbnails-slider .swiper-wrapper');
+      thumbnailWrapper.innerHTML = project.thumbnails.map(img => 
+        `<div class="swiper-slide"><img src="assets/img/portfolio/${img}" alt="Gallery Image" class="img-fluid glightbox"></div>`
+      ).join('');
+
+      // Reinitialize swipers after updating images
+      setTimeout(() => {
+        // Destroy existing swipers
+        document.querySelectorAll('.swiper').forEach(swiperEl => {
+          if (swiperEl.swiper) {
+            swiperEl.swiper.destroy();
+          }
+        });
+
+        // Reinitialize all swipers
+        document.querySelectorAll('.init-swiper').forEach(swiperEl => {
+          const configScript = swiperEl.querySelector('.swiper-config');
+          if (configScript) {
+            const config = JSON.parse(configScript.innerHTML);
+            new Swiper(swiperEl, config);
+          }
+        });
+        
+        // Reinitialize GLightbox for thumbnail images
+        GLightbox();
+      }, 100);
 
       // Update tech stack
       const techStack = document.querySelector('.tech-stack-badges');

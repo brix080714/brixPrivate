@@ -1,0 +1,21 @@
+# Robots.txt for Brix Briongos Portfolio
+# Directs search engine crawlers on which pages to index
+
+# Allow all crawlers to index the entire site
+User-agent: *
+Allow: /
+
+# Disallow sensitive/temporary files
+Disallow: /forms/
+Disallow: /.git/
+Disallow: /debug-forms.js
+Disallow: /test-*.js
+
+# Specify sitemap location for search engines
+Sitemap: https://brixbriongos.netlify.app/sitemap.xml
+
+# Crawl delay (time between requests from crawler)
+Crawl-delay: 1
+
+# Request rate
+Request-rate: 30/60

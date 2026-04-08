@@ -4,9 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Portfolio - Brix Briongos</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>My Projects Portfolio - Brix Briongos</title>
+  <meta name="description" content="View my portfolio of completed projects including clinic management systems, point-of-sale applications, and IoT solutions.">
+  <meta name="keywords" content="web projects, portfolio, development">
+  <meta name="author" content="Brix Briongos">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -26,6 +27,9 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- jQuery (required for Isotope filter) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!-- Custom Viewer Modal Styles -->
   <style>
@@ -361,6 +365,9 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <!-- Configuration File for Social Links & Settings -->
+  <script src="assets/js/config.js"></script>
+
   <!-- Custom Viewer Script -->
   <script>
     function viewFile(filePath, fileName, fileType) {
@@ -530,6 +537,51 @@
         }
       }
     });
+
+    // Validate Portfolio Filter System
+    function validatePortfolioFilters() {
+      console.log('=== PORTFOLIO FILTER VALIDATION ===');
+      
+      // Check if isotope layout exists
+      const isotopeLayout = document.querySelector('.isotope-layout');
+      console.log('✓ Isotope layout found:', !!isotopeLayout);
+      
+      // Check if filters exist
+      const filters = document.querySelectorAll('.portfolio-filters li');
+      console.log(`✓ Found ${filters.length} filter buttons:`, Array.from(filters).map(f => f.getAttribute('data-filter')));
+      
+      // Check portfolio items
+      const items = document.querySelectorAll('.portfolio-item.isotope-item');
+      console.log(`✓ Found ${items.length} portfolio items`);
+      
+      // Check filter classes on items
+      const filterClasses = new Set();
+      items.forEach(item => {
+        Array.from(item.classList).forEach(cls => {
+          if (cls.startsWith('filter-')) {
+            filterClasses.add(cls);
+          }
+        });
+      });
+      console.log('✓ Filter classes used on items:', Array.from(filterClasses));
+      
+      // Check filter buttons configuration
+      filters.forEach(filter => {
+        const filterValue = filter.getAttribute('data-filter');
+        if (filterValue !== '*') {
+          const itemsWithClass = document.querySelectorAll(`.isotope-item${filterValue}`).length;
+          console.log(`  - Filter "${filterValue}": ${itemsWithClass} items`);
+        } else {
+          console.log(`  - Filter "${filterValue}": All items (${items.length})`);
+        }
+      });
+      
+      console.log('✓ Portfolio filter system validation complete');
+      console.log('Tip: Click on filter buttons to test filtering functionality');
+    }
+
+    // Run validation after page loads
+    document.addEventListener('DOMContentLoaded', validatePortfolioFilters);
   </script>
 
 </body>

@@ -16,10 +16,35 @@
   to = "/index.html"
   status = 200
 
-# Spam filtering rules (optional)
+# Security Headers - Protection against common web vulnerabilities
 [[headers]]
-  for = "/"
+  for = "/*"
   [headers.values]
+    # Prevent MIME type sniffing
     X-Content-Type-Options = "nosniff"
+    # Prevent clickjacking attacks
     X-Frame-Options = "SAMEORIGIN"
+    # Browser XSS protection
     X-XSS-Protection = "1; mode=block"
+    # Referrer Policy for privacy
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Permissions Policy - disable unnecessary APIs
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache Control for HTML files
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Cache Control for static assets (long-term caching)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache Control for images
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
