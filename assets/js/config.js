@@ -37,7 +37,8 @@ const CONFIG = {
     itemsPerPage: 12,
     filterCategories: ['Web Development', 'Database Design', 'API Development', 'System Design'],
     enableSearch: false,
-    enableFilters: true
+    enableFilters: true,
+    resumeUrl: ''  // TODO: Add link to your resume PDF (e.g., 'assets/docs/resume.pdf')
   },
 
   // Form Settings
@@ -50,8 +51,8 @@ const CONFIG = {
 
   // Analytics
   analytics: {
-    googleAnalyticsId: '',  // TODO: Add your Google Analytics ID
-    enabled: false
+    googleAnalyticsId: 'G-XXXXXXXXXX',  // TODO: Replace with actual Google Analytics ID (format: G-XXXXXXXXXX)
+    enabled: false  // Set to true after adding Google Analytics ID
   },
 
   // Features
@@ -118,11 +119,114 @@ function initializeSocialLinks() {
   });
 }
 
-// Initialize social links when DOM is ready
+/**
+ * Initialize Resume Download
+ */
+function initializeResumeDownload() {
+  const downloadBtn = document.getElementById('downloadResume');
+  if (!downloadBtn) return;
+
+  if (!CONFIG.portfolio.resumeUrl) {
+    downloadBtn.disabled = true;
+    downloadBtn.style.opacity = '0.5';
+    downloadBtn.title = 'Resume URL not configured. Add it to config.js';
+    downloadBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Resume URL not configured. Please ask the developer to set it up.');
+    });
+    return;
+  }
+
+  downloadBtn.href = CONFIG.portfolio.resumeUrl;
+  downloadBtn.addEventListener('click', () => {
+    console.log('Resume download initiated:', CONFIG.portfolio.resumeUrl);
+  });
+}
+
+/**
+ * Initialize Google Analytics
+ */
+function initializeGoogleAnalytics() {
+  if (!CONFIG.analytics.enabled || !CONFIG.analytics.googleAnalyticsId) {
+    console.log('Google Analytics not configured. Add ID in config.js and set enabled to true.');
+    return;
+  }
+
+  // Load Google Analytics Script
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', CONFIG.analytics.googleAnalyticsId, {
+    'page_path': window.location.pathname,
+    'page_title': document.title
+  });
+
+  // Dynamically load Google Analytics script
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${CONFIG.analytics.googleAnalyticsId}`;
+  document.head.appendChild(script);
+
+  console.log('Google Analytics initialized with ID:', CONFIG.analytics.googleAnalyticsId);
+}
+
+/**
+ * Enhance form feedback UX
+ */
+function enhanceFormFeedback() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  const sentMsg = form.querySelector('.sent-message');
+  const errorMsg = form.querySelector('.error-message');
+
+  // Add CSS classes for better UX
+  if (sentMsg) {
+    sentMsg.className = 'sent-message alert alert-success alert-dismissible fade show mt-3';
+    sentMsg.role = 'alert';
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'btn-close';
+    closeBtn.setAttribute('data-bs-dismiss', 'alert');
+    sentMsg.appendChild(closeBtn);
+  }
+
+  if (errorMsg) {
+    errorMsg.className = 'error-message alert alert-danger alert-dismissible fade show mt-3';
+    errorMsg.role = 'alert';
+  }
+}
+
+/**
+ * Add lazy loading to images
+ */
+function initializeLazyLoading() {
+  // Add loading="lazy" attribute to images that don't have it
+  document.querySelectorAll('img:not([loading])').forEach(img => {
+    // Skip profile images and critical images
+    if (!img.classList.contains('profile-photo') && !img.classList.contains('logo')) {
+      img.loading = 'lazy';
+    }
+  });
+
+  console.log('Lazy loading initialized for images.');
+}
+
+// Initialize all features when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initializeSocialLinks);
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeSocialLinks();
+    initializeResumeDownload();
+    initializeGoogleAnalytics();
+    enhanceFormFeedback();
+    initializeLazyLoading();
+  });
 } else {
   initializeSocialLinks();
+  initializeResumeDownload();
+  initializeGoogleAnalytics();
+  enhanceFormFeedback();
+  initializeLazyLoading();
 }
 
 // Freeze configuration to prevent accidental modifications
