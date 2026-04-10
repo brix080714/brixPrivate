@@ -1419,6 +1419,101 @@ section,
   background-color: var(--accent-color);
 }
 
+/* Testimonial Cards Grid (for About page) */
+.testimonial-card {
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 93%);
+  height: 100%;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+
+.testimonial-card .testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-card .testimonial-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), blue 20%));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.testimonial-card .testimonial-avatar i {
+  color: var(--contrast-color);
+  font-size: 2rem;
+}
+
+.testimonial-card .testimonial-info h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: var(--heading-color);
+}
+
+.testimonial-card .testimonial-info span {
+  display: block;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  font-weight: 500;
+}
+
+.testimonial-card .testimonial-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-card .testimonial-body p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  margin: 0 0 1.25rem 0;
+  font-style: italic;
+}
+
+.testimonial-card .testimonial-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: auto;
+}
+
+.testimonial-card .testimonial-rating i {
+  color: #ffc107;
+  font-size: 0.95rem;
+}
+
+/* Responsive testimonial cards */
+@media (max-width: 768px) {
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+
+  .testimonial-card .testimonial-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .testimonial-card .testimonial-body p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+}
+
 /*--------------------------------------------------------------
 # Resume Section
 --------------------------------------------------------------*/

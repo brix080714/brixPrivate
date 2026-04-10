@@ -25,11 +25,11 @@ const CONFIG = {
 
   // Social Media Links - UPDATE THESE WITH YOUR ACTUAL URLs
   social: {
-    twitter: 'https://twitter.com/yourhandle',        // TODO: Replace with actual Twitter URL
-    linkedin: 'https://www.linkedin.com/in/yourprofile', // TODO: Replace with actual LinkedIn URL
+    twitter: 'https://twitter.com/brixbriongos',         // Update with your Twitter profile
+    linkedin: 'https://www.linkedin.com/in/brix-briongos', // Update with your LinkedIn profile
     github: 'https://github.com/brixbriongos',
-    instagram: 'https://instagram.com/yourhandle',     // TODO: Replace with actual Instagram URL
-    facebook: 'https://www.facebook.com/yourprofile',  // TODO: Replace with actual Facebook URL
+    instagram: 'https://instagram.com/brixbriongos',      // Update with your Instagram profile
+    facebook: 'https://www.facebook.com/brixbriongos',    // Update with your Facebook profile
   },
 
   // Portfolio Settings
