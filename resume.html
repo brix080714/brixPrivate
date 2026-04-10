@@ -276,6 +276,41 @@
   <!-- Configuration File for Social Links & Settings -->
   <script src="assets/js/config.js"></script>
 
+  <!-- Progress Bar Animation Script -->
+  <script>
+    // Animate progress bars when they come into view
+    document.addEventListener('DOMContentLoaded', function() {
+      const progressBars = document.querySelectorAll('.skills-animation .progress-bar');
+      
+      if (progressBars.length === 0) return;
+
+      // Use Intersection Observer to trigger animation when visible
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const progressBar = entry.target;
+            const percentage = progressBar.getAttribute('aria-valuenow');
+            
+            // Set CSS variable for animation
+            progressBar.style.setProperty('--progress-value', percentage + '%');
+            
+            // Trigger animation
+            progressBar.classList.add('animated');
+            
+            // Stop observing this element
+            observer.unobserve(progressBar);
+          }
+        });
+      }, {
+        threshold: 0.5, // Trigger when 50% of the element is visible
+        rootMargin: '0px'
+      });
+
+      // Observe all progress bars
+      progressBars.forEach(bar => observer.observe(bar));
+    });
+  </script>
+
 </body>
 
 </html>

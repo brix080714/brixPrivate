@@ -1346,7 +1346,22 @@ section,
   position: relative;
   border-radius: 50px;
   transition: 0.9s;
-  width: 1px;
+  width: 0%;
+}
+
+.skills .skill-box .progress .progress-bar.animated {
+  animation: animateProgressBar 1.2s ease-out forwards;
+}
+
+@keyframes animateProgressBar {
+  from {
+    width: 0%;
+    opacity: 0.5;
+  }
+  to {
+    width: var(--progress-value, 85%);
+    opacity: 1;
+  }
 }
 
 /*--------------------------------------------------------------
