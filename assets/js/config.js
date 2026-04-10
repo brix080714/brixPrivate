@@ -38,7 +38,7 @@ const CONFIG = {
     filterCategories: ['Web Development', 'Database Design', 'API Development', 'System Design'],
     enableSearch: false,
     enableFilters: true,
-    resumeUrl: ''  // TODO: Add link to your resume PDF (e.g., 'assets/docs/resume.pdf')
+    resumeUrl: 'assets/docs/brix resume.pdf'  // TODO: Add link to your resume PDF (e.g., 'assets/docs/resume.pdf')
   },
 
   // Form Settings
