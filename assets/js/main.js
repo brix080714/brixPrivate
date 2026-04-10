@@ -195,6 +195,32 @@
   });
 
   /**
+   * Initialize Resume Download
+   */
+  function initializeResumeDownload() {
+    const downloadBtn = document.getElementById('downloadResume');
+    if (downloadBtn && CONFIG && CONFIG.portfolio.resumeUrl) {
+      downloadBtn.href = CONFIG.portfolio.resumeUrl;
+      downloadBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Create a temporary anchor element for download
+        const link = document.createElement('a');
+        link.href = CONFIG.portfolio.resumeUrl;
+        link.download = 'Brix-Briongos-Resume.pdf';
+        link.style.display = 'none';
+        
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    }
+  }
+
+  // Initialize resume download when page loads
+  window.addEventListener('load', initializeResumeDownload);
+
+  /**
    * Initiate glightbox
    */
   const glightbox = GLightbox({

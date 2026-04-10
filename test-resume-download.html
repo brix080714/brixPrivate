@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Download Test</title>
+</head>
+<body>
+    <h1>Resume Download Test</h1>
+    <p>Testing the resume download functionality...</p>
+    
+    <!-- Configuration File -->
+    <script src="assets/js/config.js"></script>
+    
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Wait for page to load
+        window.addEventListener('load', function() {
+            console.log('Page loaded');
+            console.log('CONFIG exists?', typeof CONFIG !== 'undefined');
+            if (typeof CONFIG !== 'undefined') {
+                console.log('Resume URL:', CONFIG.portfolio.resumeUrl);
+                console.log('File exists at: assets/docs/brix resume.pdf');
+            }
+        });
+    </script>
+    
+    <p>Open your browser console (F12) to see the debug information.</p>
+    <p>The resume file is located at: <code>assets/docs/brix resume.pdf</code></p>
+</body>
+</html>
