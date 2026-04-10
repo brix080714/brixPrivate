@@ -49,10 +49,10 @@ const CONFIG = {
     enableRateLimit: true
   },
 
-  // Analytics (disabled - not configured)
+  // Analytics (enabled with Google Analytics)
   analytics: {
-    googleAnalyticsId: 'G-XXXXXXXXXX',
-    enabled: false  // Set to true after adding Google Analytics ID
+    googleAnalyticsId: 'G-WWGB747ELS',
+    enabled: true  // Google Analytics enabled
   },
 
   // Features
