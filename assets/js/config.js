@@ -38,7 +38,7 @@ const CONFIG = {
     filterCategories: ['Web Development', 'Database Design', 'API Development', 'System Design'],
     enableSearch: false,
     enableFilters: true,
-    resumeUrl: 'assets/docs/brix resume.pdf'  // TODO: Add link to your resume PDF (e.g., 'assets/docs/resume.pdf')
+    resumeUrl: 'assets/docs/brix resume.pdf'
   },
 
   // Form Settings
@@ -49,9 +49,9 @@ const CONFIG = {
     enableRateLimit: true
   },
 
-  // Analytics
+  // Analytics (disabled - not configured)
   analytics: {
-    googleAnalyticsId: 'G-XXXXXXXXXX',  // TODO: Replace with actual Google Analytics ID (format: G-XXXXXXXXXX)
+    googleAnalyticsId: 'G-XXXXXXXXXX',
     enabled: false  // Set to true after adding Google Analytics ID
   },
 

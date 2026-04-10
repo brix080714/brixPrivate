@@ -338,7 +338,7 @@
     <div class="viewer-container">
       <div class="viewer-header">
         <h3 class="viewer-title" id="viewerTitle">Preview</h3>
-        <button class="viewer-close" onclick="closeViewer()">&times;</button>
+        <button class="viewer-close" data-action="close">&times;</button>
       </div>
       <div class="viewer-content" id="viewerContent"></div>
     </div>
@@ -452,6 +452,13 @@
       const video = document.querySelector('.viewer-video');
       if (video) video.pause();
     }
+    
+    // Wire up close button event listener
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('[data-action="close"]')) {
+        closeViewer();
+      }
+    });
     
     // Close modal when clicking outside
     document.getElementById('viewerModal')?.addEventListener('click', function(e) {
