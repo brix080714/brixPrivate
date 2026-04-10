@@ -82,6 +82,103 @@
         <div class="row gy-4">
           <div class="col-lg-6" data-aos="fade-right">
             <div class="portfolio-details-media">
+              <div class="main-image">
+                <div class="portfolio-details-slider swiper init-swiper" data-aos="zoom-in">
+                  <script type="application/json" class="swiper-config">
+                    {
+                      "loop": true,
+                      "speed": 1000,
+                      "autoplay": {
+                        "delay": 6000
+                      },
+                      "effect": "creative",
+                      "creativeEffect": {
+                        "prev": {
+                          "shadow": true,
+                          "translate": [0, 0, -400]
+                        },
+                        "next": {
+                          "translate": ["100%", 0, 0]
+                        }
+                      },
+                      "slidesPerView": 1,
+                      "navigation": {
+                        "nextEl": ".swiper-button-next",
+                        "prevEl": ".swiper-button-prev"
+                      }
+                    }
+                  </script>
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-5.webp" alt="Portfolio Image" class="img-fluid">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-7.webp" alt="Portfolio Image" class="img-fluid">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-8.webp" alt="Portfolio Image" class="img-fluid">
+                    </div>
+                  </div>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
+              </div>
+
+              <div class="thumbnail-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="portfolio-thumbnails-slider swiper init-swiper">
+                  <script type="application/json" class="swiper-config">
+                    {
+                      "loop": true,
+                      "speed": 500,
+                      "slidesPerView": 4,
+                      "spaceBetween": 8,
+                      "navigation": {
+                        "nextEl": ".thumbnail-swiper-button-next",
+                        "prevEl": ".thumbnail-swiper-button-prev"
+                      },
+                      "breakpoints": {
+                        "576": {
+                          "slidesPerView": 2
+                        },
+                        "768": {
+                          "slidesPerView": 3
+                        },
+                        "992": {
+                          "slidesPerView": 4
+                        }
+                      }
+                    }
+                  </script>
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-4.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-6.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-11.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-12.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-5.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-7.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-8.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="assets/img/portfolio/portfolio-13.webp" alt="Gallery Image" class="img-fluid glightbox">
+                    </div>
+                  </div>
+                  <div class="thumbnail-swiper-button-prev swiper-button-prev"></div>
+                  <div class="thumbnail-swiper-button-next swiper-button-next"></div>
+                </div>
+              </div>
 
               <div class="tech-stack-badges" data-aos="fade-up" data-aos-delay="300">
                 <span>PHP</span>
